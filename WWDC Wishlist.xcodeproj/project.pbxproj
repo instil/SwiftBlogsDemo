@@ -11,6 +11,8 @@
 		AB018AEC2BC6DD0F00521362 /* WishlistItemViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AEB2BC6DD0F00521362 /* WishlistItemViewer.swift */; };
 		AB018AEE2BC7DBF100521362 /* DescriptionEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AED2BC7DBF100521362 /* DescriptionEditSheet.swift */; };
 		AB018AF12BC7F80C00521362 /* Vortex in Frameworks */ = {isa = PBXBuildFile; productRef = AB018AF02BC7F80C00521362 /* Vortex */; };
+		AB018AF42BC7FA9A00521362 /* NewWishIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AF32BC7FA9A00521362 /* NewWishIntent.swift */; };
+		AB018AF62BC7FD2100521362 /* AppShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AF52BC7FD2100521362 /* AppShortcuts.swift */; };
 		AB8E5BF72BC58D0A008293FF /* WWDC_WishlistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E5BF62BC58D0A008293FF /* WWDC_WishlistApp.swift */; };
 		AB8E5BF92BC58D0A008293FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E5BF82BC58D0A008293FF /* ContentView.swift */; };
 		AB8E5BFB2BC58D0A008293FF /* WishlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E5BFA2BC58D0A008293FF /* WishlistItem.swift */; };
@@ -25,6 +27,9 @@
 		AB018AE92BC68B7600521362 /* WishlistItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItemForm.swift; sourceTree = "<group>"; };
 		AB018AEB2BC6DD0F00521362 /* WishlistItemViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItemViewer.swift; sourceTree = "<group>"; };
 		AB018AED2BC7DBF100521362 /* DescriptionEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionEditSheet.swift; sourceTree = "<group>"; };
+		AB018AF32BC7FA9A00521362 /* NewWishIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWishIntent.swift; sourceTree = "<group>"; };
+		AB018AF52BC7FD2100521362 /* AppShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShortcuts.swift; sourceTree = "<group>"; };
+		AB018AF72BC811F900521362 /* WWDC-Wishlist-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WWDC-Wishlist-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AB8E5BF32BC58D0A008293FF /* WWDC Wishlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WWDC Wishlist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8E5BF62BC58D0A008293FF /* WWDC_WishlistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDC_WishlistApp.swift; sourceTree = "<group>"; };
 		AB8E5BF82BC58D0A008293FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB018AF22BC7FA8A00521362 /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+				AB018AF32BC7FA9A00521362 /* NewWishIntent.swift */,
+				AB018AF52BC7FD2100521362 /* AppShortcuts.swift */,
+			);
+			path = AppIntents;
+			sourceTree = "<group>";
+		};
 		AB8E5BEA2BC58D0A008293FF = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +81,8 @@
 		AB8E5BF52BC58D0A008293FF /* WWDC Wishlist */ = {
 			isa = PBXGroup;
 			children = (
+				AB018AF72BC811F900521362 /* WWDC-Wishlist-Info.plist */,
+				AB018AF22BC7FA8A00521362 /* AppIntents */,
 				AB8E5C0A2BC590DE008293FF /* Coordinator */,
 				AB8E5C072BC59019008293FF /* View */,
 				AB8E5C062BC59007008293FF /* Model */,
@@ -191,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB8E5BF92BC58D0A008293FF /* ContentView.swift in Sources */,
+				AB018AF42BC7FA9A00521362 /* NewWishIntent.swift in Sources */,
 				AB8E5BFB2BC58D0A008293FF /* WishlistItem.swift in Sources */,
 				AB8E5BF72BC58D0A008293FF /* WWDC_WishlistApp.swift in Sources */,
 				AB018AEC2BC6DD0F00521362 /* WishlistItemViewer.swift in Sources */,
@@ -198,6 +215,7 @@
 				AB8E5C092BC590CE008293FF /* AppCoordinatorView.swift in Sources */,
 				AB018AEE2BC7DBF100521362 /* DescriptionEditSheet.swift in Sources */,
 				AB8E5C0E2BC59343008293FF /* AppNavigationCoordinator.swift in Sources */,
+				AB018AF62BC7FD2100521362 /* AppShortcuts.swift in Sources */,
 				AB8E5C0C2BC590EC008293FF /* AppSheetCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +353,7 @@
 				DEVELOPMENT_TEAM = M6W9FG2WLN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WWDC-Wishlist-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -364,6 +383,7 @@
 				DEVELOPMENT_TEAM = M6W9FG2WLN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WWDC-Wishlist-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

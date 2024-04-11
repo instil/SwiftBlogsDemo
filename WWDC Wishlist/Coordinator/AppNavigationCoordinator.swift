@@ -15,6 +15,10 @@ final class AppNavigationCoordinator: Coordinator {
         navigationPath.append(route)
     }
     
+    func clear() {
+        navigationPath.removeLast(navigationPath.count)
+    }
+    
     static var activeCoordinator: AppNavigationCoordinator?
     
     required init() {
