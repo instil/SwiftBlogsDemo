@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Vortex
 
 struct WishlistStatusButton: View {
     let status: WislistItemStatus
@@ -13,24 +14,46 @@ struct WishlistStatusButton: View {
     @Binding var selection: WislistItemStatus
     
     var body: some View {
-        Button {
-            withAnimation {
-                selection = status
-            }
-        } label: {
-            HStack {
-                Image(systemName: status.imageName)
-                Text(status.title)
-            }
-            .frame(maxWidth: .infinity, alignment: .center)
-            .foregroundStyle(status.tint)
-            .font(.title2)
-            .fontWeight(selection == status ? .semibold : .regular)
+        VortexViewReader { proxy in
+            ZStack {
+                if status == .announced {
+                    VortexView(.confetti) {
+                        Rectangle()
+                            .fill(.white)
+                            .frame(width: 16, height: 16)
+                            .tag("square")
+                        
+                        Circle()
+                            .fill(.white)
+                            .frame(width: 16)
+                            .tag("circle")
+                    }
+                }
                 
+                Button {
+                    withAnimation {
+                        if status == .announced && selection != status {
+                            proxy.burst()
+                        }
+
+                        selection = status
+                    }
+                } label: {
+                    HStack {
+                        Image(systemName: status.imageName)
+                        Text(status.title)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .foregroundStyle(status.tint)
+                    .font(.title2)
+                    .fontWeight(selection == status ? .semibold : .regular)
+                        
+                }
+                .buttonStyle(.bordered)
+                .tint(status.tint)
+                .opacity(selection == status ? 1 : 0.3)
+            }
         }
-        .buttonStyle(.bordered)
-        .tint(status.tint)
-        .opacity(selection == status ? 1 : 0.3)
     }
 }
 

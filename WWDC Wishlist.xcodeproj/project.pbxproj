@@ -10,6 +10,7 @@
 		AB018AEA2BC68B7600521362 /* WishlistItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AE92BC68B7600521362 /* WishlistItemForm.swift */; };
 		AB018AEC2BC6DD0F00521362 /* WishlistItemViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AEB2BC6DD0F00521362 /* WishlistItemViewer.swift */; };
 		AB018AEE2BC7DBF100521362 /* DescriptionEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AED2BC7DBF100521362 /* DescriptionEditSheet.swift */; };
+		AB018AF12BC7F80C00521362 /* Vortex in Frameworks */ = {isa = PBXBuildFile; productRef = AB018AF02BC7F80C00521362 /* Vortex */; };
 		AB8E5BF72BC58D0A008293FF /* WWDC_WishlistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E5BF62BC58D0A008293FF /* WWDC_WishlistApp.swift */; };
 		AB8E5BF92BC58D0A008293FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E5BF82BC58D0A008293FF /* ContentView.swift */; };
 		AB8E5BFB2BC58D0A008293FF /* WishlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E5BFA2BC58D0A008293FF /* WishlistItem.swift */; };
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB018AF12BC7F80C00521362 /* Vortex in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +130,9 @@
 			dependencies = (
 			);
 			name = "WWDC Wishlist";
+			packageProductDependencies = (
+				AB018AF02BC7F80C00521362 /* Vortex */,
+			);
 			productName = "WWDC Wishlist";
 			productReference = AB8E5BF32BC58D0A008293FF /* WWDC Wishlist.app */;
 			productType = "com.apple.product-type.application";
@@ -156,6 +161,9 @@
 				Base,
 			);
 			mainGroup = AB8E5BEA2BC58D0A008293FF;
+			packageReferences = (
+				AB018AEF2BC7F80C00521362 /* XCRemoteSwiftPackageReference "Vortex" */,
+			);
 			productRefGroup = AB8E5BF42BC58D0A008293FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -396,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AB018AEF2BC7F80C00521362 /* XCRemoteSwiftPackageReference "Vortex" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/Vortex";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AB018AF02BC7F80C00521362 /* Vortex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB018AEF2BC7F80C00521362 /* XCRemoteSwiftPackageReference "Vortex" */;
+			productName = Vortex;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB8E5BEB2BC58D0A008293FF /* Project object */;
 }
