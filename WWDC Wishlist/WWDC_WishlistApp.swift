@@ -12,7 +12,7 @@ import SwiftData
 struct WWDC_WishlistApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            WishlistItem.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -24,8 +24,8 @@ struct WWDC_WishlistApp: App {
     }()
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        WindowGroup(for: UUID.self) { id in
+            AppCoordinatorView(windowId: id)
         }
         .modelContainer(sharedModelContainer)
     }
