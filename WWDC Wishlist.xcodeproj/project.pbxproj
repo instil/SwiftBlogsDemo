@@ -13,6 +13,10 @@
 		AB018AF12BC7F80C00521362 /* Vortex in Frameworks */ = {isa = PBXBuildFile; productRef = AB018AF02BC7F80C00521362 /* Vortex */; };
 		AB018AF42BC7FA9A00521362 /* NewWishIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AF32BC7FA9A00521362 /* NewWishIntent.swift */; };
 		AB018AF62BC7FD2100521362 /* AppShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AF52BC7FD2100521362 /* AppShortcuts.swift */; };
+		AB018AFD2BC9432D00521362 /* WishEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AFC2BC9432D00521362 /* WishEntity.swift */; };
+		AB018AFF2BC9503200521362 /* OpenWishIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AFE2BC9503200521362 /* OpenWishIntent.swift */; };
+		AB018B012BC969CA00521362 /* AppEnumImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018B002BC969CA00521362 /* AppEnumImplementation.swift */; };
+		AB018B032BC985C400521362 /* UpdateWishStartusIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018B022BC985C400521362 /* UpdateWishStartusIntent.swift */; };
 		AB8E5BF72BC58D0A008293FF /* WWDC_WishlistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E5BF62BC58D0A008293FF /* WWDC_WishlistApp.swift */; };
 		AB8E5BF92BC58D0A008293FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E5BF82BC58D0A008293FF /* ContentView.swift */; };
 		AB8E5BFB2BC58D0A008293FF /* WishlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E5BFA2BC58D0A008293FF /* WishlistItem.swift */; };
@@ -30,6 +34,10 @@
 		AB018AF32BC7FA9A00521362 /* NewWishIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWishIntent.swift; sourceTree = "<group>"; };
 		AB018AF52BC7FD2100521362 /* AppShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShortcuts.swift; sourceTree = "<group>"; };
 		AB018AF72BC811F900521362 /* WWDC-Wishlist-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WWDC-Wishlist-Info.plist"; sourceTree = SOURCE_ROOT; };
+		AB018AFC2BC9432D00521362 /* WishEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEntity.swift; sourceTree = "<group>"; };
+		AB018AFE2BC9503200521362 /* OpenWishIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWishIntent.swift; sourceTree = "<group>"; };
+		AB018B002BC969CA00521362 /* AppEnumImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnumImplementation.swift; sourceTree = "<group>"; };
+		AB018B022BC985C400521362 /* UpdateWishStartusIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWishStartusIntent.swift; sourceTree = "<group>"; };
 		AB8E5BF32BC58D0A008293FF /* WWDC Wishlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WWDC Wishlist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8E5BF62BC58D0A008293FF /* WWDC_WishlistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDC_WishlistApp.swift; sourceTree = "<group>"; };
 		AB8E5BF82BC58D0A008293FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +66,10 @@
 			children = (
 				AB018AF32BC7FA9A00521362 /* NewWishIntent.swift */,
 				AB018AF52BC7FD2100521362 /* AppShortcuts.swift */,
+				AB018AFC2BC9432D00521362 /* WishEntity.swift */,
+				AB018AFE2BC9503200521362 /* OpenWishIntent.swift */,
+				AB018B002BC969CA00521362 /* AppEnumImplementation.swift */,
+				AB018B022BC985C400521362 /* UpdateWishStartusIntent.swift */,
 			);
 			path = AppIntents;
 			sourceTree = "<group>";
@@ -216,7 +228,11 @@
 				AB018AEE2BC7DBF100521362 /* DescriptionEditSheet.swift in Sources */,
 				AB8E5C0E2BC59343008293FF /* AppNavigationCoordinator.swift in Sources */,
 				AB018AF62BC7FD2100521362 /* AppShortcuts.swift in Sources */,
+				AB018B032BC985C400521362 /* UpdateWishStartusIntent.swift in Sources */,
+				AB018B012BC969CA00521362 /* AppEnumImplementation.swift in Sources */,
 				AB8E5C0C2BC590EC008293FF /* AppSheetCoordinator.swift in Sources */,
+				AB018AFD2BC9432D00521362 /* WishEntity.swift in Sources */,
+				AB018AFF2BC9503200521362 /* OpenWishIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

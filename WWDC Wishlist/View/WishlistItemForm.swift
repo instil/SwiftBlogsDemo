@@ -124,6 +124,9 @@ struct WishlistItemForm: View {
                     Button("Done") {
                         createItem()
                         dismiss()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            AppShortcuts.updateAppShortcutParameters()
+                        }
                     }
                     .bold()
                     .disabled(title.isEmpty)

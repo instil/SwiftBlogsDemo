@@ -8,6 +8,10 @@
 import SwiftData
 import SwiftUI
 
+class ModelContextProvider {
+    static var context: ModelContext?
+}
+
 struct ContentView: View {
     @Environment(AppSheetCoordinator.self) private var sheetCoordinator
     @Environment(\.modelContext) private var modelContext
@@ -33,6 +37,9 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
+        }
+        .onAppear {
+            ModelContextProvider.context = _items.modelContext
         }
         .overlay {
             if items.isEmpty {
@@ -66,5 +73,7 @@ struct ContentView: View {
                 modelContext.delete(items[index])
             }
         }
+        
+        AppShortcuts.updateAppShortcutParameters()
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-enum WislistItemStatus: Codable, CaseIterable {
+enum WislistItemStatus: String, Codable, CaseIterable {
     case wish
     case rumoured
     case announced

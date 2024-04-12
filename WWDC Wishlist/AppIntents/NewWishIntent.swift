@@ -9,11 +9,14 @@ import AppIntents
 
 enum IntentError: Error, CustomLocalizedStringResourceConvertible {
     case coordinatorNotFound
+    case itemNotFound
     
     var localizedStringResource: LocalizedStringResource {
         switch self {
         case .coordinatorNotFound:
             "Something went wrong"
+        case .itemNotFound:
+            "That item does not exist"
         }
     }
 }
