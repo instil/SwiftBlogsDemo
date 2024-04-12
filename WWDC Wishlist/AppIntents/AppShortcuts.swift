@@ -30,7 +30,7 @@ class AppShortcuts: AppShortcutsProvider {
         )
         
         AppShortcut(
-            intent: UpdateWishStartusIntent(),
+            intent: UpdateWishStatusIntent(),
             phrases: [
                 "update status of \(\.$wish) using \(.applicationName)"
             ],

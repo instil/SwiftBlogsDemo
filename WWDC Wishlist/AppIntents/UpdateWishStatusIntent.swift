@@ -1,5 +1,5 @@
 //
-//  OpenWishIntent.swift
+//  UpdateWishStatusIntent.swift
 //  WWDC Wishlist
 //
 //  Created by Caleb Wilson on 12/04/2024.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-struct UpdateWishStartusIntent: AppIntent {
+struct UpdateWishStatusIntent: AppIntent {
     static var title: LocalizedStringResource = "Update WWDC Wish Status"
     static var openAppWhenRun = false
     

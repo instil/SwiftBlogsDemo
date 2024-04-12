@@ -23,6 +23,8 @@ struct AppCoordinatorView: View {
             switch $0 {
             case .newWishlistItem:
                 WishlistItemForm()
+            case .newWishlistItemWith(let initialTitle):
+                WishlistItemForm(title: initialTitle)
             case .itemDescriptionEdit(let item):
                 DescriptionEditSheet(item: item)
             }

@@ -9,12 +9,15 @@ import SwiftUI
 
 enum AppSheet: Identifiable {
     case newWishlistItem
+    case newWishlistItemWith(initialTitle: String)
     case itemDescriptionEdit(WishlistItem)
     
     var id: String {
         switch self {
         case .newWishlistItem:
             "newWishlistItem"
+        case .newWishlistItemWith(let initialTitle):
+            "newWishlistItemWith-\(initialTitle)"
         case .itemDescriptionEdit(let item):
             "itemDescriptionEdit-\(item.id)"
         }

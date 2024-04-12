@@ -65,6 +65,10 @@ struct WishlistItemForm: View {
     @State private var title = ""
     @State private var description = ""
     @State private var status = WislistItemStatus.wish
+    
+    init(title: String = "") {
+        self._title = State(initialValue: title)
+    }
 
     var body: some View {
         NavigationStack {

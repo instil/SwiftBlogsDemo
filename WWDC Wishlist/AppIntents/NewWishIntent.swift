@@ -25,6 +25,13 @@ struct NewWishIntent: AppIntent {
     static var title: LocalizedStringResource = "Create New WWDC Wish"
     static var openAppWhenRun = true
     
+    @Parameter(title: "Title")
+    var wishTitle: String
+    
+    static var parameterSummary: some ParameterSummary {
+        Summary("New Wish Named \(\.$wishTitle)")
+    }
+    
     func perform() async throws -> some IntentResult & ProvidesDialog {
         guard let navigationCoordinator = AppNavigationCoordinator.activeCoordinator else {
             throw IntentError.coordinatorNotFound
@@ -34,7 +41,7 @@ struct NewWishIntent: AppIntent {
         }
         
         navigationCoordinator.clear()
-        sheetCoordinator.activeSheet = .newWishlistItem
+        sheetCoordinator.activeSheet = .newWishlistItemWith(initialTitle: self.wishTitle)
         
         return .result(dialog: "Creating New Wish")
     }
