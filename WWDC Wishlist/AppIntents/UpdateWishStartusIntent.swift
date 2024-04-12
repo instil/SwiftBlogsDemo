@@ -5,9 +5,10 @@
 //  Created by Caleb Wilson on 12/04/2024.
 //
 
-import Foundation
 import AppIntents
+import Foundation
 import SwiftData
+import SwiftUI
 
 struct UpdateWishStartusIntent: AppIntent {
     static var title: LocalizedStringResource = "Update WWDC Wish Status"
@@ -23,7 +24,7 @@ struct UpdateWishStartusIntent: AppIntent {
         Summary("Mark \(\.$wish) as \(\.$wishStatus)")
     }
     
-    func perform() async throws -> some IntentResult & ProvidesDialog {
+    func perform() async throws -> some IntentResult & ShowsSnippetView {
         let modelContext = ModelContext.getContextForAppIntents()
         
         let fetchDescriptor = FetchDescriptor<WishlistItem>()
@@ -36,6 +37,9 @@ struct UpdateWishStartusIntent: AppIntent {
             swiftDataItem.status = self.wishStatus
         }
         
-        return .result(dialog: "Marked \(self.wish.title) as \(self.wishStatus)")
+        return .result(view: WishlistStatusButton(
+            status: wishStatus,
+            selection: .constant(wishStatus)
+        ).padding())
     }
 }
