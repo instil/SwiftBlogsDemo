@@ -25,7 +25,7 @@ struct WWDC_WishlistApp: App {
 
     var body: some Scene {
         WindowGroup(for: UUID.self) { id in
-            AppCoordinatorView(windowId: id)
+            AppCoordinatorView()
         }
         .modelContainer(sharedModelContainer)
     }

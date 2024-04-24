@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct AppCoordinatorView: View {
-    @Binding var windowId: UUID?
-    
     @State var sheetCoordinator = AppSheetCoordinator.start()
     @State var appNavigationCoordinator = AppNavigationCoordinator.start()
 
@@ -33,5 +31,5 @@ struct AppCoordinatorView: View {
 }
 
 #Preview {
-    AppCoordinatorView(windowId: .constant(.init()))
+    AppCoordinatorView()
 }
