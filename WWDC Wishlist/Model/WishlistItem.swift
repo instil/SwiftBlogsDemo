@@ -57,15 +57,20 @@ final class WishlistItem {
     var timestamp: Date
     var status: WislistItemStatus
     
+    @Attribute(.externalStorage)
+    var imageData: Data?
+    
     init(
         timestamp: Date,
         descriptionText: String,
         title: String,
-        status: WislistItemStatus
+        status: WislistItemStatus,
+        imageData: Data?
     ) {
         self.timestamp = timestamp
         self.descriptionText = descriptionText
         self.title = title
         self.status = status
+        self.imageData = imageData
     }
 }

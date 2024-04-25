@@ -14,6 +14,32 @@ struct WishlistStatusButton: View {
     @Binding var selection: WislistItemStatus
     
     var body: some View {
+        #if os(visionOS)
+        visionOS
+            .glassBackgroundEffect()
+        #else
+        ipad
+        #endif
+    }
+    
+    var visionOS: some View {
+        Button {
+            selection = status
+        } label: {
+            HStack {
+                Image(systemName: status.imageName)
+                Text(status.title)
+            }
+            
+            .foregroundStyle(selection == status ? .primary : .tertiary)
+        }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .frame(height: 50)
+        .hoverEffect()
+    }
+    
+    var ipad: some View {
         VortexViewReader { proxy in
             ZStack {
                 if status == .announced {
@@ -47,7 +73,6 @@ struct WishlistStatusButton: View {
                     .foregroundStyle(status.tint)
                     .font(.title2)
                     .fontWeight(selection == status ? .semibold : .regular)
-                        
                 }
                 .buttonStyle(.bordered)
                 .tint(status.tint)
@@ -145,7 +170,7 @@ struct WishlistItemForm: View {
                 timestamp: .now,
                 descriptionText: description,
                 title: title,
-                status: status
+                status: status, imageData: nil
             )
         )
     }

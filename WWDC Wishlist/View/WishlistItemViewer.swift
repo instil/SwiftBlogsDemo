@@ -26,15 +26,25 @@ struct WishlistItemViewer: View {
                     }
                 }
                 
-                if horizontalSizeClass == .compact {
-                    VStack {
-                        statusButtons()
+                #if os(visionOS)
+                    statusButtons()
+                #else
+                
+                    if horizontalSizeClass == .compact {
+                        VStack {
+                            statusButtons()
+                        }
+                    } else {
+                        HStack {
+                            statusButtons()
+                        }
                     }
-                } else {
-                    HStack {
-                        statusButtons()
-                    }
-                }
+                
+                #endif
+            }
+            
+            Section("Photo") {
+                PhotoPickerAndViwer(item: selectedItem)
             }
             
             Section("Description") {
@@ -60,7 +70,7 @@ struct WishlistItemViewer: View {
                         .padding(.vertical, 5)
                         .padding(.horizontal, 10)
                         .background(.blue)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.secondary)
                         .clipShape(.capsule)
                     }
                 }
@@ -78,7 +88,8 @@ struct WishlistItemViewer: View {
         timestamp: .now,
         descriptionText: "",
         title: "",
-        status: .announced
+        status: .announced,
+        imageData: nil
     )
 
     return WishlistItemViewer(
