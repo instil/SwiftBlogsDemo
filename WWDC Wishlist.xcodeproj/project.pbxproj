@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13F2022D2BDA50E20083FB96 /* PhotoPickerAndViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F2022C2BDA50E20083FB96 /* PhotoPickerAndViewer.swift */; };
 		AB018AEA2BC68B7600521362 /* WishlistItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AE92BC68B7600521362 /* WishlistItemForm.swift */; };
 		AB018AEC2BC6DD0F00521362 /* WishlistItemViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AEB2BC6DD0F00521362 /* WishlistItemViewer.swift */; };
 		AB018AEE2BC7DBF100521362 /* DescriptionEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018AED2BC7DBF100521362 /* DescriptionEditSheet.swift */; };
@@ -29,7 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13F2022C2BDA50E20083FB96 /* PhotoPickerAndViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerAndViewer.swift; sourceTree = "<group>"; };
 		AB018AE92BC68B7600521362 /* WishlistItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItemForm.swift; sourceTree = "<group>"; };
 		AB018AEB2BC6DD0F00521362 /* WishlistItemViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItemViewer.swift; sourceTree = "<group>"; };
 		AB018AED2BC7DBF100521362 /* DescriptionEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionEditSheet.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				AB8E5C082BC590CE008293FF /* AppCoordinatorView.swift */,
 				AB018AE92BC68B7600521362 /* WishlistItemForm.swift */,
 				AB018AEB2BC6DD0F00521362 /* WishlistItemViewer.swift */,
-				13F2022C2BDA50E20083FB96 /* PhotoPickerAndViewer.swift */,
 				AB018AED2BC7DBF100521362 /* DescriptionEditSheet.swift */,
 			);
 			path = View;
@@ -223,7 +220,6 @@
 			files = (
 				AB8E5BF92BC58D0A008293FF /* ContentView.swift in Sources */,
 				AB018AF42BC7FA9A00521362 /* NewWishIntent.swift in Sources */,
-				13F2022D2BDA50E20083FB96 /* PhotoPickerAndViewer.swift in Sources */,
 				AB8E5BFB2BC58D0A008293FF /* WishlistItem.swift in Sources */,
 				AB8E5BF72BC58D0A008293FF /* WWDC_WishlistApp.swift in Sources */,
 				AB018AEC2BC6DD0F00521362 /* WishlistItemViewer.swift in Sources */,

@@ -14,32 +14,6 @@ struct WishlistStatusButton: View {
     @Binding var selection: WislistItemStatus
     
     var body: some View {
-        #if os(visionOS)
-        visionOS
-            .glassBackgroundEffect()
-        #else
-        ipad
-        #endif
-    }
-    
-    var visionOS: some View {
-        Button {
-            selection = status
-        } label: {
-            HStack {
-                Image(systemName: status.imageName)
-                Text(status.title)
-            }
-            
-            .foregroundStyle(selection == status ? .primary : .tertiary)
-        }
-        .padding()
-        .frame(maxWidth: .infinity)
-        .frame(height: 50)
-        .hoverEffect()
-    }
-    
-    var ipad: some View {
         VortexViewReader { proxy in
             ZStack {
                 if status == .announced {
@@ -94,7 +68,7 @@ struct WishlistItemForm: View {
     init(title: String = "") {
         self._title = State(initialValue: title)
     }
-
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -115,24 +89,11 @@ struct WishlistItemForm: View {
                 }
                 
                 Section("Status") {
-                    let statusButtons = {
-                        ForEach(WislistItemStatus.allCases, id: \.title) {
-                            WishlistStatusButton(
-                                status: $0,
-                                selection: $status
-                            )
-                        }
-                    }
-                    
-                    if horizontalSizeClass == .compact {
-                        VStack {
-                            statusButtons()
-                        }
-                    } else {
-                        HStack {
-                            statusButtons()
-                        }
-                    }
+                    #if os(visionOS)
+                    visionOSPicker
+                    #else
+                    ipadOSPicker
+                    #endif
                 }
             }
             .navigationTitle("New Wishlist Entry")
@@ -164,13 +125,44 @@ struct WishlistItemForm: View {
         }.interactiveDismissDisabled()
     }
     
+    @ViewBuilder
+    private var ipadOSPicker: some View {
+        let statusButtons = {
+            ForEach(WislistItemStatus.allCases, id: \.title) {
+                WishlistStatusButton(
+                    status: $0,
+                    selection: $status
+                )
+            }
+        }
+        
+        if horizontalSizeClass == .compact {
+            VStack {
+                statusButtons()
+            }
+        } else {
+            HStack {
+                statusButtons()
+            }
+        }
+    }
+
+    private var visionOSPicker: some View {
+        Picker("Status", selection: $status) {
+            ForEach(WislistItemStatus.allCases, id: \.self) { selectedStatus in
+                Text(selectedStatus.title)
+            }
+        }
+        .pickerStyle(.navigationLink)
+    }
+    
     private func createItem() {
         modelContext.insert(
             WishlistItem(
                 timestamp: .now,
                 descriptionText: description,
                 title: title,
-                status: status, imageData: nil
+                status: status
             )
         )
     }

@@ -14,9 +14,20 @@ struct WishlistItemViewer: View {
     
     @Bindable var selectedItem: WishlistItem
     
-    var body: some View {
-        List {
-            Section("Status") {
+    var visionOSPicker: some View {
+        Picker("Status", selection: $selectedItem.status) {
+            ForEach(WislistItemStatus.allCases, id: \.self) { status in
+                Text(status.title)
+            }
+        }
+        .pickerStyle(.navigationLink)
+    }
+    
+    var statusSection: some View {
+        Section("Status") {
+            #if os(visionOS)
+                visionOSPicker
+            #else
                 let statusButtons = {
                     ForEach(WislistItemStatus.allCases, id: \.title) {
                         WishlistStatusButton(
@@ -25,28 +36,23 @@ struct WishlistItemViewer: View {
                         )
                     }
                 }
-                
-                #if os(visionOS)
-                    statusButtons()
-                #else
-                
-                    if horizontalSizeClass == .compact {
-                        VStack {
-                            statusButtons()
-                        }
-                    } else {
-                        HStack {
-                            statusButtons()
-                        }
+            
+                if horizontalSizeClass == .compact {
+                    VStack {
+                        statusButtons()
                     }
-                
-                #endif
-            }
-            
-            Section("Photo") {
-                PhotoPickerAndViwer(item: selectedItem)
-            }
-            
+                } else {
+                    HStack {
+                        statusButtons()
+                    }
+                }
+            #endif
+        }
+    }
+    
+    var body: some View {
+        List {
+            statusSection
             Section("Description") {
                 if !selectedItem.descriptionText.isEmpty {
                     HStack {
@@ -70,7 +76,7 @@ struct WishlistItemViewer: View {
                         .padding(.vertical, 5)
                         .padding(.horizontal, 10)
                         .background(.blue)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white)
                         .clipShape(.capsule)
                     }
                 }
@@ -88,8 +94,7 @@ struct WishlistItemViewer: View {
         timestamp: .now,
         descriptionText: "",
         title: "",
-        status: .announced,
-        imageData: nil
+        status: .announced
     )
 
     return WishlistItemViewer(
