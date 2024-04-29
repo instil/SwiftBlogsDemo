@@ -57,7 +57,6 @@ final class WishlistItem {
     var timestamp: Date
     var status: WislistItemStatus
     
-    
     init(
         timestamp: Date,
         descriptionText: String,
