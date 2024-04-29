@@ -14,9 +14,20 @@ struct WishlistItemViewer: View {
     
     @Bindable var selectedItem: WishlistItem
     
-    var body: some View {
-        List {
-            Section("Status") {
+    var visionOSPicker: some View {
+        Picker("Status", selection: $selectedItem.status) {
+            ForEach(WislistItemStatus.allCases, id: \.self) { status in
+                Text(status.title)
+            }
+        }
+        .pickerStyle(.navigationLink)
+    }
+    
+    var statusSection: some View {
+        Section("Status") {
+            #if os(visionOS)
+                visionOSPicker
+            #else
                 let statusButtons = {
                     ForEach(WislistItemStatus.allCases, id: \.title) {
                         WishlistStatusButton(
@@ -25,7 +36,7 @@ struct WishlistItemViewer: View {
                         )
                     }
                 }
-                
+            
                 if horizontalSizeClass == .compact {
                     VStack {
                         statusButtons()
@@ -35,8 +46,13 @@ struct WishlistItemViewer: View {
                         statusButtons()
                     }
                 }
-            }
-            
+            #endif
+        }
+    }
+    
+    var body: some View {
+        List {
+            statusSection
             Section("Description") {
                 if !selectedItem.descriptionText.isEmpty {
                     HStack {

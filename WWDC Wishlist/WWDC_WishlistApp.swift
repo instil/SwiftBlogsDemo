@@ -5,8 +5,8 @@
 //  Created by Caleb Wilson on 09/04/2024.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct WWDC_WishlistApp: App {
@@ -24,8 +24,8 @@ struct WWDC_WishlistApp: App {
     }()
 
     var body: some Scene {
-        WindowGroup(for: UUID.self) { id in
-            AppCoordinatorView(windowId: id)
+        WindowGroup(for: UUID.self) { _ in
+            AppCoordinatorView()
         }
         .modelContainer(sharedModelContainer)
     }

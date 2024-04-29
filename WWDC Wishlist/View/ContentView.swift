@@ -8,13 +8,14 @@
 import SwiftData
 import SwiftUI
 
-class ModelContextProvider {
+enum ModelContextProvider {
     static var context: ModelContext?
 }
 
 struct ContentView: View {
     @Environment(AppSheetCoordinator.self) private var sheetCoordinator
     @Environment(\.modelContext) private var modelContext
+
     @Query private var items: [WishlistItem]
 
     var body: some View {
@@ -73,7 +74,7 @@ struct ContentView: View {
                 modelContext.delete(items[index])
             }
         }
-        
+
         AppShortcuts.updateAppShortcutParameters()
     }
 }
