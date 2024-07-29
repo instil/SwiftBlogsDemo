@@ -8,23 +8,19 @@
 import SwiftUI
 
 struct AppCoordinatorView: View {
-    @State var sheetCoordinator = AppSheetCoordinator.start()
-    @State var appNavigationCoordinator = AppNavigationCoordinator.start()
+    @State var appSidebarCoordinator: AppSidebarCoordinator = .start()
 
     var body: some View {
-        NavigationStack(path: $appNavigationCoordinator.navigationPath) {
-            ContentView()
-                .environment(sheetCoordinator)
-                .environment(appNavigationCoordinator)
-        }
-        .sheet(item: $sheetCoordinator.activeSheet) {
-            switch $0 {
-            case .newWishlistItem:
-                WishlistItemForm()
-            case .newWishlistItemWith(let initialTitle):
-                WishlistItemForm(title: initialTitle)
-            case .itemDescriptionEdit(let item):
-                DescriptionEditSheet(item: item)
+        NavigationSplitView {
+            SidebarListView(appSidebarCoordinator: appSidebarCoordinator)
+        } detail: {
+            switch appSidebarCoordinator.selectedTab {
+            case .wishlist:
+                WishlistContentView()
+            case .dictation:
+                DictationContentView()
+            case .none:
+                Text("Select a tab")
             }
         }
     }
