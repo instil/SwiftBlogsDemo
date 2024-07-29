@@ -114,7 +114,7 @@ enum TrainingData {
 
     static func setupModel() async {
         let data = SFCustomLanguageModelData(
-            locale: Locale(identifier: "en_US"),
+            locale: Locale.current,
             identifier: "co.instil.WWDC-Wishlist",
             version: "1.0"
         ) {

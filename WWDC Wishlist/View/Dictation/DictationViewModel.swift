@@ -25,13 +25,13 @@ class DictationViewModel {
     var buttonDisabled: Bool = true
     var viewLink: SwiftUILink?
 
-    private let speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "en_US"))!
+    private let speechRecogniser = SFSpeechRecognizer(locale: Locale.current)!
     private let audioEngine = AVAudioEngine()
 
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
 
-    private var lmConfiguration: SFSpeechLanguageModel.Configuration {
+    private var languageModelConfiguration: SFSpeechLanguageModel.Configuration {
         let outputDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let dynamicLanguageModel = outputDir.appendingPathComponent("LM")
         let dynamicVocabulary = outputDir.appendingPathComponent("Vocab")
@@ -90,7 +90,7 @@ class DictationViewModel {
         }
 
         recognitionRequest.requiresOnDeviceRecognition = true
-        recognitionRequest.customizedLanguageModel = lmConfiguration
+        recognitionRequest.customizedLanguageModel = languageModelConfiguration
 
         recognitionTask = speechRecogniser.recognitionTask(with: recognitionRequest) { [weak self] result, error in
             guard let self else {
@@ -163,7 +163,7 @@ class DictationViewModel {
                             try await SFSpeechLanguageModel
                                 .prepareCustomLanguageModel(for: outputFileUrl,
                                                             clientIdentifier: "co.instil.WWDC-Wishlist",
-                                                            configuration: self.lmConfiguration)
+                                                            configuration: self.languageModelConfiguration)
                         } catch {
                             print("Failed to prepare custom LM: \(error.localizedDescription)")
                         }
