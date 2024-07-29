@@ -20,7 +20,7 @@ struct AppCoordinatorView: View {
             case .dictation:
                 DictationContentView()
             case .none:
-                Text("yes")
+                Text("Select a tab")
             }
         }
     }
